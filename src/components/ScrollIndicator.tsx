@@ -16,7 +16,7 @@ export const ScrollIndicator = () => {
 
     // Create bounce animation for dot
     gsap.to(dot, {
-      yPercent: 400,
+      yPercent: 700,
       duration: 1,
       ease: "power2.inOut",
       repeat: -1,
@@ -43,7 +43,7 @@ export const ScrollIndicator = () => {
       <h4
         ref={textRef}
         className={css({
-          fontSize: "md",
+          fontSize: "xl",
           fontWeight: "bold",
         })}
       >
@@ -52,7 +52,7 @@ export const ScrollIndicator = () => {
       <div
         className={css({
           width: "2px",
-          height: "40px",
+          height: "80px",
           backgroundColor: "rgba(0, 0, 0, 0.1)",
           borderRadius: "full",
           overflow: "visible",

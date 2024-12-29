@@ -2,13 +2,14 @@
 
 import { flex, hstack, vstack } from "../../styled-system/patterns";
 import { css } from "../../styled-system/css";
-import { useState } from "react";
+import { useSetAtom } from "jotai";
 import { Cursor } from "@/components/Cursor";
 import { Header } from "@/components/Header";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
+import { cursorHoverAtom } from "@/state/atoms";
 
 export const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const setIsHovered = useSetAtom(cursorHoverAtom);
 
   const marqueeText = "SAMMY FATTAH • ".repeat(4);
 
@@ -21,7 +22,7 @@ export const Hero = () => {
         py: 4,
       })}
     >
-      <Cursor isHovered={isHovered} />
+      <Cursor />
       <Header />
       <div
         className={vstack({
@@ -72,9 +73,14 @@ export const Hero = () => {
             user-friendly interfaces.
           </p>
           <div className={css({ h: "full", w: "4px", bg: "black" })} />
-          <div className={vstack({ w: "600px", alignItems: "flex-start" })}>
-            <h4>Tools</h4>
-            <p>React, Next.js, TypeScript, Tailwind CSS, Styled System</p>
+          <div
+            className={flex({
+              w: "600px",
+              h: "full",
+              justify: "center",
+              alignItems: "center",
+            })}
+          >
             <ScrollIndicator />
           </div>
         </div>

@@ -3,12 +3,11 @@
 import { useRef, useEffect } from "react";
 import { css } from "../../styled-system/css";
 import gsap from "gsap";
+import { useAtom } from "jotai";
+import { cursorHoverAtom } from "@/state/atoms";
 
-interface CursorProps {
-  isHovered: boolean;
-}
-
-export const Cursor = ({ isHovered }: CursorProps) => {
+export const Cursor = () => {
+  const [isHovered] = useAtom(cursorHoverAtom);
   const size = isHovered ? 300 : 30;
   const ref = useRef<HTMLDivElement>(null);
   const mousePosition = useRef({ x: 0, y: 0 });
