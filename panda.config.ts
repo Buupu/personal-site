@@ -32,10 +32,43 @@ export default defineConfig({
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
+        pulse: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.5 },
+        },
       },
     },
   },
 
   // The output directory for your css system
   outdir: "styled-system",
+
+  themes: {
+    light: {
+      semanticTokens: {
+        colors: {
+          body: { value: "{colors.zinc.50}" },
+          accent: { value: "{colors.zinc.200}" },
+          text: {
+            value: "{colors.zinc.900}",
+          },
+        },
+      },
+    },
+    dark: {
+      semanticTokens: {
+        colors: {
+          accent: { value: "{colors.indigo.800}" },
+          body: { value: "{colors.indigo.950}" },
+          text: {
+            value: "{colors.indigo.50}",
+          },
+        },
+      },
+    },
+  },
+
+  staticCss: {
+    themes: ["light", "dark"],
+  },
 });
